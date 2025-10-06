@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black & Red Login</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for a dark theme and red accents -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-red': '#DC2626', // Tailwind red-600
+                        'dark-bg': '#1F2937',    // Tailwind gray-800
+                        'dark-card': '#111827',  // Tailwind gray-900
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Apply smooth transitions to all elements */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            /* Added Gaming Background Image (using a placeholder URL) */
+            background-image: url('https://wallpapercave.com/wp/wp8379188.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensures background stays put on scroll (if content were longer) */
+        }
+         
+        body{
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Make the login card slightly opaque so the background shows through */
+        #login-card {
+             background-color: rgba(31, 41, 55, 0.9); /* 90% opacity of dark-bg */
+        }
+    </style>
+</head>
+<body class="bg-dark-card flex items-center justify-center p-4">
+
+    <!-- Login Card Container -->
+    <div id="login-card" class="w-full max-w-sm mx-auto p-6 shadow-2xl rounded-xl border border-primary-red/20 md:p-8 transition-opacity duration-500 ease-in-out">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-white tracking-tight">Access Terminal</h1>
+            <p class="mt-2 text-primary-red/80">Login to continue the mission.</p>
+        </div>
+
+        <!-- Message Box (The Pop-up for Success/Error) -->
+        <div id="message-box" class="hidden p-3 mb-4 rounded-lg text-white border text-sm font-medium" role="alert">
+            <!-- Message content will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" onsubmit="handleLogin(event)">
+            
+            <!-- Email/Username Input -->
+            <div class="mb-5">
+                <label for="username" class="block mb-2 text-sm font-medium text-gray-300">Username or Email</label>
+                <input type="text" id="username" class="bg-dark-card border border-gray-700 text-white text-sm rounded-lg focus:ring-primary-red focus:border-primary-red block w-full p-2.5 placeholder-gray-500" placeholder="user@example.com" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-6">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-300">Password</label>
+                <input type="password" id="password" class="bg-dark-card border border-gray-700 text-white text-sm rounded-lg focus:ring-primary-red focus:border-primary-red block w-full p-2.5 placeholder-gray-500" placeholder="••••••••" required>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="remember" type="checkbox" value="" class="w-4 h-4 text-primary-red bg-gray-700 border-gray-600 rounded focus:ring-primary-red">
+                    </div>
+                    <label for="remember" class="ms-2 text-sm font-medium text-gray-400">Remember me</label>
+                </div>
+                <!-- Link calls the page change simulation -->
+                <a href="javascript:void(0)" onclick="simulatePageChange('Password Reset')" class="text-sm text-primary-red hover:underline">Forgot Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="w-full text-white bg-primary-red hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center shadow-lg shadow-primary-red/30 uppercase tracking-widest transition duration-150 ease-in-out">
+                Secure Login
+            </button>
+        </form>
+
+        <!-- Footer Link -->
+        <div class="mt-8 text-center text-sm text-gray-400">
+            Don't have an account? 
+            <!-- Link calls the page change simulation -->
+            <a href="javascript:void(0)" onclick="simulatePageChange('Registration')" class="font-medium text-primary-red hover:underline">Register Now</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Form Submission Handling -->
+    <script>
+        const loginCard = document.getElementById('login-card');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const messageBox = document.getElementById('message-box');
+        
+        // Removed successOverlay as the small messageBox is now used for both success and error
+
+        function handleLogin(event) {
+            // Prevent the default form submission (page reload)
+            event.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            // Simple validation and success/error message display
+            if (username === "" || password === "") {
+                showMessage("Input Error: Please enter both username/email and password.", "error");
+                return;
+            }
+
+            // Simulate a successful login attempt for demonstration
+            if ((username === "admin" && password === "password123") || (username === "user@example.com" && password === "secure")) {
+                // Now using the simple message box for "pop-up login successful"
+                showMessage("Login Successful! Access Granted.", "success");
+                usernameInput.value = '';
+                passwordInput.value = '';
+            } else {
+                showMessage("Authentication Failed. Check credentials. Unauthorized Access Detected.", "error");
+            }
+        }
+
+        /**
+         * Displays a message in the custom message box (the 'pop-up').
+         * @param {string} message - The text message to display.
+         * @param {string} type - 'success' or 'error' to determine styling.
+         */
+        function showMessage(message, type) {
+            // Clear previous classes
+            messageBox.classList.remove('hidden', 'bg-green-800/50', 'border-green-500', 'bg-red-800/50', 'border-red-500');
+
+            // Set classes based on type
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-800/50', 'border-green-500');
+            } else { // error
+                messageBox.classList.add('bg-red-800/50', 'border-red-500');
+            }
+            
+            // Set message text
+            messageBox.textContent = message;
+            
+            // Show the box
+            messageBox.classList.remove('hidden');
+
+            // Hide the message after a delay (e.g., 5 seconds)
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        /**
+         * Simulates navigation for secondary links (Forgot Password / Register).
+         * @param {string} pageName - The name of the page being navigated to.
+         */
+        function simulatePageChange(pageName) {
+            showMessage(`System Notice: Redirecting to the ${pageName} interface...`, "success");
+        }
+    </script>
+
+</body>
+</html>

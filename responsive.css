@@ -1,0 +1,199 @@
+@media only screen and (max-width: 620px){
+
+    .main-section{
+        height: auto;
+    }
+
+    .navbar{
+        height: auto !important;
+    }
+
+    .ml{
+        height: auto !important;
+    }
+
+    .a-new-place{
+        margin-top: 30px;
+        font-size: 55px !important;
+    }
+
+    .allorgin{
+        height: auto;
+        gap: 30px !important;
+        flex-wrap: wrap;
+        min-height: auto !important;
+        padding: 10px;
+    }
+
+    .cardspubg{
+        display: flex;
+        gap: 40px !important;
+    }
+
+    .game{
+        display: flex !important;
+        flex-direction: column;
+        /* border: 5px solid gold; */
+    }
+
+
+    .gaming-tournament1{
+        width: 100% !important;
+        height: auto;
+        /* border: 3px solid blue; */
+        /* background-color: aqua; */
+    }
+
+    .imu{
+        width: 100% !important;
+    }
+
+    .imu2{
+        width: 20% !important;
+    }
+
+    .upcoming-matchescard1{
+        height: auto !important;
+        /* border: 3px solid blue; */
+    }
+
+    .helloborder{
+        flex-wrap: wrap;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .Call-Of-Duty{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .dates{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 3px solid blue; */
+        padding: 15px 45px;
+        
+    }
+
+    .TeamLeagueimg{
+        width: 100%;
+        /* padding: 10px ; */
+    }
+
+    .TeamLeague {
+        display: flex;
+        justify-content: center;
+        height: auto !important;
+        margin: 0;
+    }
+
+    .input-sec{
+        /* padding: 0px 10px !important; */
+        /* background-color: aqua !important; */
+        width: 107% !important;
+    }
+
+    .join-as-a-super{
+        height: auto !important;
+    }
+
+    .Subscribetext{
+        margin-top: 40px;
+        display: flex;
+    }
+
+    .social-icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+
+
+}
+
+
+
+@media only screen and (max-width: 768px){
+
+    .navbar{
+        height: auto !important;
+    }
+
+    .Call-Of-Duty{
+        margin-top: 40px !important;
+
+    }
+
+    .imu{
+        /* width: 500% !important; */
+    }
+
+    .gaming-tournament2{
+        min-height: auto;
+    }
+
+    .dates{
+        /* margin-top: 20px !important; */
+        /* padding: 0px 100px; */
+        width: 40%;
+    }
+
+    .grpbuton{
+        margin-top: 40px !important;
+    }
+
+    .ml{
+        height: auto !important;
+    }
+
+    .join-as-a-super{
+        min-height: auto !important;
+    }
+
+    .remoteimg{
+        width: 100%;
+    }
+
+    .headphoneimg{
+        width: 70%;
+    }
+
+    .tshirtimg{
+        width: 70%;
+    }
+
+    .input-sec{
+        /* padding: 0px 10px !important; */
+        /* background-color: aqua !important; */
+        width: 107% !important;
+    }
+
+    .Subscribetext{
+        margin-top: 40px;
+        display: flex;
+    }
+
+    .Subscribe-To-Our{
+        min-height: auto;
+    }
+
+    .social-icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+    }
+    
+
+}
